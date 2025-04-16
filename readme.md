@@ -36,7 +36,7 @@ If you're using a model from Hugging Face, update the `TrainConfig.pretrained_pa
 pretrained_path : str = 'ckiplab/albert-base-chinese'
 ```
 
-## Training the Model
+## Training A Model
 
 To train a model, run the `train.py` script and specify the model name using the `--model=[model_name]` argument. The `model_name` should match the file name of the model located in the `/models` folder. Once training is complete, the system will automatically identify the checkpoint with the highest accuracy on the test set, and save the model as `[model_name].pth.[accuracy]`. For example, to train the `bert_opt` model:
 
@@ -44,7 +44,13 @@ To train a model, run the `train.py` script and specify the model name using the
 python train.py --model=bert_opt
 ```
 
-## Testing the Model
+## Distilling A Model
+
+```python
+python distill.py --model=textcnn_dist
+```
+
+## Testing A Model
 
 To test a model, use the `--model=[model_name]` argument, along with the accuracy argument `--acc=[accuracy]`. For example, to test the fine-tuned model `/models_fine_tuned/bert_opt/bert_opt.pth.95.02%`, run the following command:
 
@@ -100,6 +106,12 @@ pretrained_path : str = 'ckiplab/albert-base-chinese'
 
 ```bash
 python train.py --model=bert_opt
+```
+
+## 蒸馏模型
+
+```python
+python distill.py --model=textcnn_dist
 ```
 
 ## 测试模型
